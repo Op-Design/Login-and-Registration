@@ -1,0 +1,10 @@
+#-------------------------------------------------#
+# Folders to Ignore
+#-------------------------------------------------#
+Belt Exam (HTML+CSS)  - Option D/
+Helpful Material and Resources/
+__pycache__/
+.vscode/
+venv/
+db.sqlite3
+#--------- From ... ------------------------------#

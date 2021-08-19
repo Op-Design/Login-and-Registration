@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Coding Dojo Survey</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <div class="container">
+      <p class="text-right"><a href=/logout>logout</a></p>
+        <div class=>
+          <form class="needs-validation" novalidate action="/register" method="POST">
+            {% csrf_token %}
+            <div class = 'col-6'>
+              <div class="py-5 text-center">
+                <h2>Registration</h2>
+              </div>
+              {% if messages %}
+              <ul class = "messages">
+                {% for message in messages %}
+                  <li {% if message.tags%} class="{{message.tags}}" {% endif %}>{{message}}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              <div>
+                <label for="first_name">First Name</label>
+                <input type="text" name= "first_name" class="form-control" id="first_name" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid First Name is required.
+                </div>
+              </div>
+              <div>
+                <label for="last_name">Last Name</label>
+                <input type="text" name= "last_name" class="form-control" id="last_name" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Last Name is required.
+                </div>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="text" name= "email" class="form-control" id="email" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Email is required.
+                </div>
+              </div>
+              <div>
+                <label for="password">Password</label>
+                <input type="text" name= "password" class="form-control" id="password" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Password is required.
+                </div>
+              </div>
+              <div>
+                <label for="c_password">Confirm PW</label>
+                <input type="text" name= "c_password" class="form-control" id="c_password" placeholder="" value="" required>
+              </div>
+              <div>
+                <hr class="mb-4">            
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+              </div>
+            </div>
+          </form>
+
+          <form class="needs-validation" novalidate action="/login" method="POST">
+            {% csrf_token %}
+            <div class = 'col-6'>
+              <div class="py-5 text-center">
+                <h2>Login</h2>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="text" name= "email" class="form-control" id="email" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Email is required.
+                </div>
+              </div>
+              <div>
+                <label for="password">Password</label>
+                <input type="text" name= "password" class="form-control" id="password" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Password is required.
+                </div>
+              </div>
+              <div>
+                <hr class="mb-4">            
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Log In</button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+    
+    <!-- <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script> -->
+  </body>
+</html>
